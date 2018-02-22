@@ -70,7 +70,6 @@ module HuobiApi
     end
 
     def hash_sort(ha)
-      puts ha
       Hash[ha.sort_by{ |k, _| k }]
     end
   end
