@@ -37,7 +37,7 @@ end
 ### Making calls
 ```ruby
 HuobiApi.new_order(amount: 100, side: :sell, symbol: :xrpbtc, type: :market)
-# => => {"status"=>"ok", "data"=>"12345678"}
+# => {"status"=>"ok", "data"=>"12345678"}
 
 HuobiApi.order_info(order_id: 12345678)
 # => {"account-id"=>"123456", "amount"=>"100", "source"=>"api", "symbol"=>"xrpbtc", "type"=>"buy-market"}
@@ -54,6 +54,57 @@ HuobiApi.accounts
 # => {"status"=>"ok", "data"=>[{"id"=>123456, "type"=>"spot", "subtype"=>"", "state"=>"working"}]}
 ```
 Your `account_id` is 123456.
+
+### Account API
+```ruby
+# Balances
+HuobiApi.balances
+
+# Balances in Hadax
+HuobiApi.balances_in_hadax
+```
+
+### Market API
+```ruby
+# Candlestick
+HuobiApi.kline(symbol: :xrpbtc, period: '15min', size: 150)
+
+# Ticker
+HuobiApi.ticker(symbol: :xrpbtc)
+
+# Tickers
+HuobiApi.tickers
+
+# Market Depth
+HuobiApi.market_depth(symbol: :xrpbtc, type: :step5)
+
+# Trade Detail
+HuobiApi.trade(symbol: :xrpbtc)
+
+# Orderbook
+HuobiApi.orderbook(symbol: :xrpbtc, size: 1)
+
+# Market Detail in 24 hours
+HuobiApi.market_detail(symbol: :xrpbtc)
+```
+
+### Commons
+```ruby
+# Symbols
+HuobiApi.symbols
+
+# Symbols in Hadax
+HuobiApi.symbols_in_hadax
+
+# Currencies
+HuobiApi.currencies
+
+# Currencies in Hadax
+HuobiApi.currencies_in_hadax
+
+# Timestamp
+HuobiApi.timestamp
+```
 
 ## Development
 

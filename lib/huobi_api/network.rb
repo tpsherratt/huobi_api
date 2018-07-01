@@ -28,6 +28,9 @@ module HuobiApi
       http = Net::HTTP.new(uri.host, uri.port)
       http.use_ssl = true
 
+      # Stringify keys
+      data = Hash[data.map { |key, value| [key.to_s, value] }]
+
       params = build_params(endpoint, method, data)
       url = "#{BASE_URL}#{endpoint}?#{Rack::Utils.build_query(params)}"
 
