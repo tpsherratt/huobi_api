@@ -9,5 +9,10 @@ module HuobiApi
       endpoint = "/v1/account/accounts/#{HuobiApi.account_id}/balance"
       get(endpoint, {})
     end
+
+    def balances_in_hadax
+      endpoint = "/v1/hadax/account/accounts/#{HuobiApi.account_id}/balance"
+      get(endpoint, {})
+    end
   end
 end
